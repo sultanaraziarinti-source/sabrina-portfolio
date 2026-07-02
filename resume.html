@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabrina Haque — CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ── PRINT ── */
+    @media print {
+      .no-print { display: none !important; }
+      html, body { margin: 0 !important; padding: 0 !important; width: 210mm !important; height: 297mm !important; background: #fff !important; overflow: hidden !important; }
+      .page-wrapper { padding: 0 !important; margin: 0 !important; width: 210mm !important; height: 297mm !important; }
+      .cv-card { box-shadow: none !important; border-radius: 0 !important; margin: 0 !important; width: 210mm !important; height: 297mm !important; display: flex !important; flex-direction: column !important; overflow: hidden !important; }
+      .cv-header { padding: 18px 24px !important; flex-shrink: 0 !important; }
+      .cv-body { display: grid !important; grid-template-columns: 195px 1fr !important; flex: 1 !important; min-height: 0 !important; align-items: stretch !important; }
+      .cv-left { padding: 16px 16px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; height: 100% !important; overflow: hidden !important; }
+      .cv-right { padding: 16px 20px !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; height: 100% !important; overflow: hidden !important; }
+      .cv-left > div, .cv-right > div { margin-bottom: 0 !important; }
+      .sec-title { margin-bottom: 2px !important; }
+      .sec-line { margin-bottom: 6px !important; }
+      .skill-row { margin-bottom: 6px !important; }
+      .exp-card { margin-bottom: 0 !important; }
+      .edu-card { margin-bottom: 0 !important; }
+      .lang-row { margin-bottom: 4px !important; }
+    }
+    @page { margin: 0; size: A4 portrait; }
+
+    /* ── BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', Arial, sans-serif; background: #F1F5F9; }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      position: sticky; top: 0; z-index: 100;
+      background: #1E1B4B; padding: 12px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    .top-bar-title { color: #fff; font-weight: 700; font-size: 14px; }
+    .top-bar-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .btn-back { color: #94A3B8; font-size: 13px; font-weight: 600; text-decoration: none; padding: 8px 14px; border-radius: 8px; border: 1px solid #334155; white-space: nowrap; }
+    .btn-download { background: linear-gradient(135deg,#2563EB,#7C3AED); color: #fff; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer; white-space: nowrap; }
+
+    /* ── WRAPPER ── */
+    .page-wrapper { background: #F1F5F9; min-height: 100vh; padding: 24px 12px; }
+
+    /* ── CV CARD ── */
+    .cv-card { max-width: 860px; margin: 0 auto; background: #fff; box-shadow: 0 8px 40px rgba(0,0,0,.12); border-radius: 6px; overflow: hidden; }
+
+    /* ── HEADER ── */
+    .cv-header { background: linear-gradient(135deg,#1E1B4B 0%,#4C1D95 50%,#1E3A8A 100%); padding: 32px 36px; color: #fff; }
+    .cv-header-inner { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+    .cv-header h1 { font-size: 30px; font-weight: 900; letter-spacing: -0.5px; }
+    .cv-header-sub { font-size: 13px; color: rgba(255,255,255,.85); margin-top: 5px; font-weight: 600; }
+    .cv-contacts { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+    .cv-contacts span { font-size: 12px; color: rgba(255,255,255,.85); display: flex; align-items: center; gap: 5px; }
+    .cv-avatar { width: 76px; height: 76px; border-radius: 50%; border: 3px solid rgba(255,255,255,.35); overflow: hidden; flex-shrink: 0; }
+    .cv-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── BODY GRID ── */
+    .cv-body { display: grid; grid-template-columns: 1fr 1.6fr; }
+
+    /* ── LEFT ── */
+    .cv-left { background: #F8F4FF; padding: 28px 22px; border-right: 1px solid #E5E7EB; }
+
+    /* ── RIGHT ── */
+    .cv-right { padding: 28px 30px; }
+
+    /* ── SECTION ── */
+    .sec-title { font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: #374151; margin-bottom: 4px; }
+    .sec-title.accent { color: #4C1D95; }
+    .sec-line { height: 2px; width: 28px; background: #D1D5DB; border-radius: 2px; margin-bottom: 14px; }
+    .sec-line.accent { background: linear-gradient(90deg,#4C1D95,#2563EB); }
+
+    /* ── PROFILE ── */
+    .cv-left p { font-size: 12px; color: #6B7280; line-height: 1.8; }
+
+    /* ── SKILLS ── */
+    .skill-row { margin-bottom: 12px; }
+    .skill-label { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .skill-label span:first-child { font-size: 11px; font-weight: 700; color: #374151; }
+    .skill-label span:last-child { font-size: 11px; font-weight: 700; }
+    .skill-track { background: #E5E7EB; border-radius: 50px; height: 5px; }
+    .skill-fill { height: 100%; border-radius: 50px; }
+
+    /* ── TECH TAGS ── */
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tech-tag { background: #EDE9FE; color: #4C1D95; padding: 3px 9px; border-radius: 5px; font-size: 10px; font-weight: 700; }
+
+    /* ── LANGUAGES ── */
+    .lang-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; }
+    .lang-row span:first-child { font-weight: 700; color: #374151; }
+    .lang-row span:last-child { color: #9CA3AF; font-weight: 600; }
+
+    /* ── EXPERIENCE / PROJECT ── */
+    .exp-card { margin-bottom: 18px; padding-left: 12px; border-left: 3px solid #4C1D95; }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; gap: 8px; flex-wrap: wrap; }
+    .exp-role { font-size: 13px; font-weight: 800; color: #111827; }
+    .exp-company { font-size: 11px; color: #6B7280; font-weight: 600; }
+    .exp-badge { background: #EDE9FE; color: #4C1D95; padding: 2px 8px; border-radius: 5px; font-size: 10px; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
+    .exp-list { margin-top: 6px; padding-left: 14px; }
+    .exp-list li { font-size: 11px; color: #6B7280; line-height: 1.7; margin-bottom: 2px; }
+
+    /* ── EDUCATION ── */
+    .edu-card { margin-bottom: 14px; padding-left: 12px; border-left: 3px solid #2563EB; }
+    .edu-degree { font-size: 13px; font-weight: 800; color: #111827; }
+    .edu-inst { font-size: 11px; color: #6B7280; font-weight: 600; }
+    .edu-note { font-size: 10px; color: #9CA3AF; margin-top: 2px; }
+    .edu-badge { background: #EFF6FF; color: #2563EB; padding: 2px 8px; border-radius: 5px; font-size: 10px; font-weight: 700; display: inline-block; margin-top: 4px; }
+
+    /* ── AWARDS ── */
+    .award-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #F3F4F6; gap: 8px; flex-wrap: wrap; }
+    .award-name { font-size: 12px; font-weight: 700; color: #111827; }
+    .award-org { font-size: 10px; color: #6B7280; }
+    .award-badge { background: #FEF9C3; color: #92400E; padding: 2px 8px; border-radius: 5px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      .cv-header { padding: 22px 18px; }
+      .cv-header h1 { font-size: 22px; }
+      .cv-body { grid-template-columns: 1fr; }
+      .cv-left { border-right: none; border-bottom: 1px solid #E5E7EB; padding: 22px 18px; }
+      .cv-right { padding: 22px 18px; }
+      .cv-avatar { width: 56px; height: 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar no-print">
+    <span class="top-bar-title">📄 Sabrina Haque — CV</span>
+    <div class="top-bar-actions">
+      <a href="index.html" class="btn-back">← Back</a>
+      <button onclick="window.print()" class="btn-download">⬇ Download PDF</button>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="cv-card">
+
+      <!-- HEADER -->
+      <div class="cv-header">
+        <div class="cv-header-inner">
+          <div style="flex:1;min-width:0;">
+            <h1>Sabrina Haque</h1>
+            <p class="cv-header-sub">Software Engineer · Android Developer · NLP Researcher</p>
+            <div class="cv-contacts">
+              <span>📧 srbnshe35@gmail.com</span>
+              <span>📍 Mirpur, Dhaka 1216</span>
+              <span>🐙 github.com/SilverDisc2</span>
+              <span>💼 linkedin.com/in/sabrina-haque-0216781ab</span>
+            </div>
+          </div>
+          <div class="cv-avatar">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face" alt="Sabrina Haque" />
+          </div>
+        </div>
+      </div>
+
+      <!-- BODY -->
+      <div class="cv-body">
+
+        <!-- LEFT -->
+        <div class="cv-left">
+
+          <div style="margin-bottom:22px;">
+            <p class="sec-title">Profile</p>
+            <div class="sec-line"></div>
+            <p>Everyday learner from Dhaka specialising in Android, PHP, NLP, and full-stack web development. Passionate about building clean, practical software and conducting AI research.</p>
+          </div>
+
+          <div style="margin-bottom:22px;">
+            <p class="sec-title">Skills</p>
+            <div class="sec-line"></div>
+            <div class="skill-row"><div class="skill-label"><span>HTML5 / CSS3</span><span style="color:#3B82F6;">90%</span></div><div class="skill-track"><div class="skill-fill" style="width:90%;background:#3B82F6;"></div></div></div>
+            <div class="skill-row"><div class="skill-label"><span>Java</span><span style="color:#2563EB;">88%</span></div><div class="skill-track"><div class="skill-fill" style="width:88%;background:#2563EB;"></div></div></div>
+            <div class="skill-row"><div class="skill-label"><span>Android (Studio)</span><span style="color:#E11D48;">86%</span></div><div class="skill-track"><div class="skill-fill" style="width:86%;background:#E11D48;"></div></div></div>
+            <div class="skill-row"><div class="skill-label"><span>MySQL / SQL Server</span><span style="color:#16A34A;">85%</span></div><div class="skill-track"><div class="skill-fill" style="width:85%;background:#16A34A;"></div></div></div>
+            <div class="skill-row"><div class="skill-label"><span>JavaScript</span><span style="color:#CA8A04;">82%</span></div><div class="skill-track"><div class="skill-fill" style="width:82%;background:#CA8A04;"></div></div></div>
+            <div class="skill-row"><div class="skill-label"><span>PHP</span><span style="color:#EA580C;">80%</span></div><div class="skill-track"><div class="skill-fill" style="width:80%;background:#EA580C;"></div></div></div>
+            <div class="skill-row"><div class="skill-label"><span>NLP / AI</span><span style="color:#9333EA;">78%</span></div><div class="skill-track"><div class="skill-fill" style="width:78%;background:#9333EA;"></div></div></div>
+            <div class="skill-row"><div class="skill-label"><span>ASP.NET</span><span style="color:#059669;">75%</span></div><div class="skill-track"><div class="skill-fill" style="width:75%;background:#059669;"></div></div></div>
+          </div>
+
+          <div style="margin-bottom:22px;">
+            <p class="sec-title">Tools</p>
+            <div class="sec-line"></div>
+            <div class="tech-tags">
+              <span class="tech-tag">Android Studio</span>
+              <span class="tech-tag">NetBeans</span>
+              <span class="tech-tag">Visual Studio</span>
+              <span class="tech-tag">Adobe Suite</span>
+              <span class="tech-tag">Git</span>
+              <span class="tech-tag">SQLite</span>
+              <span class="tech-tag">Arduino</span>
+              <span class="tech-tag">Bootstrap</span>
+            </div>
+          </div>
+
+          <div>
+            <p class="sec-title">Languages</p>
+            <div class="sec-line"></div>
+            <div class="lang-row"><span>Bengali</span><span>Native</span></div>
+            <div class="lang-row"><span>English</span><span>Professional</span></div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="cv-right">
+
+          <div style="margin-bottom:22px;">
+            <p class="sec-title accent">Projects</p>
+            <div class="sec-line accent"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div><div class="exp-role">Tour Diary</div><div class="exp-company">Android App</div></div>
+                <span class="exp-badge">Java · Android</span>
+              </div>
+              <ul class="exp-list">
+                <li>Travel planning app with budget tracking and itinerary management</li>
+                <li>Integrated Google Maps API for location-based features</li>
+              </ul>
+            </div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div><div class="exp-role">Ensure Bill Payment System</div><div class="exp-company">Web App — PHP</div></div>
+                <span class="exp-badge">PHP · MySQL</span>
+              </div>
+              <ul class="exp-list">
+                <li>Billing management system for small companies</li>
+                <li>Full CRUD with secure user authentication</li>
+              </ul>
+            </div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div><div class="exp-role">Daily Expenses Tracker</div><div class="exp-company">Android App</div></div>
+                <span class="exp-badge">Java · SQLite</span>
+              </div>
+              <ul class="exp-list">
+                <li>Expense categorisation with summary charts and reports</li>
+              </ul>
+            </div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div><div class="exp-role">NLP Research Project</div><div class="exp-company">IEEE / ICONCS 2020</div></div>
+                <span class="exp-badge">NLP · Python</span>
+              </div>
+              <ul class="exp-list">
+                <li>Research paper awarded 2nd Place at ICONCS 2020 conference</li>
+                <li>Applied machine learning to natural language understanding tasks</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-bottom:22px;">
+            <p class="sec-title accent">Education</p>
+            <div class="sec-line accent"></div>
+            <div class="edu-card">
+              <div class="exp-header">
+                <div>
+                  <div class="edu-degree">BSc in Software Engineering</div>
+                  <div class="edu-inst">🎓 Daffodil International University</div>
+                  <div class="edu-note">Dhaka, Bangladesh · GPA 3.74 / 4.0</div>
+                  <span class="edu-badge">May 2015 – August 2019</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="sec-title accent">Awards &amp; Certifications</p>
+            <div class="sec-line accent"></div>
+            <div class="award-row">
+              <div><div class="award-name">🏆 2nd Place Paper Award</div><div class="award-org">ICONCS 2020 — International Conference on Networking, Communication &amp; Systems</div></div>
+              <span class="award-badge">2020</span>
+            </div>
+            <div class="award-row">
+              <div><div class="award-name">📱 Professional Android Development</div><div class="award-org">BITM — Bangladesh Institute of ICT in Development</div></div>
+              <span class="award-badge">Cert</span>
+            </div>
+            <div class="award-row">
+              <div><div class="award-name">🤖 IEEE RUSB NLP Webinar</div><div class="award-org">IEEE — Rajshahi University Student Branch</div></div>
+              <span class="award-badge">Cert</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
